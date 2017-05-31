@@ -1,0 +1,23 @@
+<script>
+  $(document).ready(function(){
+  //......
+  });
+</script>
+
+.addClass
+.removeClass
+.css		 $("#target1").css("color", "red");
+.prop		 $("#target1").prop("disabled", true);
+.html		 $("#target1").html("<em>#target1</em>");
+.remove
+
+.appendTo() moving elements from one div to another
+.clone() copy elements from one place to another
+
+.parent()
+.children()
+
+target:nth-child(n)
+target:odd
+
+$("body").addClass("animated hinge");
