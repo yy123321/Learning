@@ -1,0 +1,94 @@
+CSS文档结构应如下：
+1、一般性样式
+    1）主体样式
+    2）reset样式
+    3）链接
+    4）标题
+    5）其他元素
+2、辅助样式
+    1）表单
+    2）通知和错误
+    3）一致的条目
+3、页面结构
+    1）标题、页脚和导航
+    2）布局
+    3）其他页面结构元素
+4、页面组件
+    各个页面
+5、覆盖
+
+/* @group general styles
+----------------------------------------------------------------------*/
+
+/* @group helper styles
+-----------------------------------------------------------------------*/
+
+/* @group page structure
+-----------------------------------------------------------------------------*/
+
+/*@group page components
+-----------------------------------------------------------------------*/
+
+/* @group overrides
+-----------------------------------------------------------------*/
+
+
+
+浮动：
+浮动的时候，行框会围绕在浮动框的外面，为了阻止这种围绕，需要进行去浮动（clear）。
+
+.clear:after {
+    content:"";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+但这种方法在IE6及更低版本中不起作用，解决办法：www.positioniseverything.net/easyclearing.html
+
+JavaScript也可以清除浮动--------后续找到资料后进行更新
+
+
+
+居中：
+IE5.x和IE6不支持margin: 0 auto;
+解决办法：
+body {
+    /*margin: 0 auto;*/
+    text-align: center;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+.header .nav li {
+    display: inline;
+    border: 2px solid red;
+}
+
+.header .nav li a {
+    display: block;
+    float: left;
+    /*padding: .5em 2em;*/
+    color: #eef;
+    /*background-color: transparent;*/
+    border: .1em solid yellow;
+}
+
+.content {
+    padding: 2em 10%;
+    color: #223;
+    background-color: #edc;
+    border: .1em solid red/*#667*/;
+}
+
+.footer {
+    color: #ec8;
+    background-color: #334;
+    border-color: #667;
+}

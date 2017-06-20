@@ -1,7 +1,7 @@
-¼æÈİĞÂÀÏä¯ÀÀÆ÷µÄgetElementsByClassName():(±¸×¢£ºnode±íÊ¾DOMÊ÷ÖĞËÑË÷µÄÆğµã£»¸Ãº¯Êı²»ÊÊÓÃ¶à¸öÀàÃû£©
+å…¼å®¹æ–°è€æµè§ˆå™¨çš„getElementsByClassName():(å¤‡æ³¨ï¼šnodeè¡¨ç¤ºDOMæ ‘ä¸­æœç´¢çš„èµ·ç‚¹ï¼›è¯¥å‡½æ•°ä¸é€‚ç”¨å¤šä¸ªç±»åï¼‰
 function getElementsByClassName(node, classname){
 	if(node.getElementsByClassName){
-		//Ê¹ÓÃÏÖÓĞ·½·¨
+		//ä½¿ç”¨ç°æœ‰æ–¹æ³•
 		return node.getElementsByClassName(classname);
 	}else{
 		var results = new Array();
@@ -15,8 +15,57 @@ function getElementsByClassName(node, classname){
 	}
 }
 
+nodeTypeï¼š
+1	å…ƒç´ èŠ‚ç‚¹
+2	å±æ€§èŠ‚ç‚¹
+3	æ–‡æœ¬èŠ‚ç‚¹
 
-nodeType£º
-1	ÔªËØ½Úµã
-2	ÊôĞÔ½Úµã
-3	ÎÄ±¾½Úµã
+
+ç¼–å†™insertAfterï¼š
+function insertAfter(newElement, targetElement) {
+	var parent = targetElement.parentNode;
+	if (parent.lastChild == targetElement) {
+	    parent.appendChild(newElement);
+	} else {
+	    parent.insertBefore(newElement, targetElement.nextSibling);
+	}
+}
+
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+
+function getNextElement(node) {
+	if (node.nodetype == 1) {
+	    return node;
+	}
+	if (node.nextSibling) {
+	    return getNextElement(node.nextSibling);
+	}
+
+	return null;
+}
+
+function addClass(element, value) {
+	if (!element.className) {
+	    element.className = value;
+	}
+	else {
+	    var newClassName = element.className;
+	    newClassName += " ";
+	    newClassName += value;
+	    element.className = newClassName;
+	}
+}
+
+Math.ceil(number):æŠŠæµ®ç‚¹æ•°å‘â€œå¤§äºâ€æ–¹å‘èˆå…¥ä¸ºæ•´æ•°
+Math.floor(number):æŠŠæµ®ç‚¹æ•°å‘â€œå°äºâ€æ–¹å‘èˆå…¥ä¸ºæ•´æ•°
+Math.round(number):æŠŠæµ®ç‚¹æ•°å°±è¿‘èˆå…¥ä¸ºæ•´æ•°ï¼ˆä¸åŒäºå››èˆäº”å…¥ï¼‰
